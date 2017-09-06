@@ -1,5 +1,7 @@
 # FriendFinder
 
+Link to deployed Heroku App: https://secure-woodland-69342.herokuapp.com/
+
 ### Description
 ***
 
