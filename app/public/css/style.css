@@ -1,0 +1,13 @@
+body {
+    text-align: center;
+}
+
+.header-bg {
+    width: 100%;
+    background: transparent;
+    background-size: cover;
+}
+
+.navbar-header {
+    font-size: 30px;
+}

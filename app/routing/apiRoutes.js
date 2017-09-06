@@ -5,9 +5,31 @@ module.exports = function(app) {
         res.json(friendsArray);
     });
     app.post("/api/friends", function(req, res) {
-        // Empty out the arrays of data
-        friendsArray.push(req.body);
-        res.json(true);
-        console.log(friendsArray);
+
+        let friendMatch = {
+            name: '',
+            photo: '',
+            matchDiff: 50
+        }
+        let userData = req.body;
+
+        for (value of friendsArray){
+
+            let matchVal = 0;
+
+            for (let i = 0; i < 10; i++){
+                matchVal += Math.abs(parseInt(userData.scores[i]) 
+                - parseInt(value.scores[i]));
+
+                if (matchVal <= friendMatch.matchDiff) {
+                    friendMatch.name = value.name;
+                    friendMatch.photo = value.photo;
+                    friendMatch.matchDiff = matchVal;
+                }
+            }
+        }
+        friendsArray.push(userData);
+        
+        res.json(friendMatch);
     });
 };
